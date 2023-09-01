@@ -6,6 +6,14 @@ app.use(express.json());
 app.use(cors());
 const axios = require("axios");
 
+app.get("/", (req, res) => {
+  try {
+    return res.status(200).json({ message: "Bienvenue sur Vinted" });
+  } catch (error) {
+    return res.status(400).json({ message: error.message });
+  }
+});
+
 //ROUTE POUR AFFICHER LA LISTE DES COMICS
 
 app.get("/comics", async (req, res) => {
